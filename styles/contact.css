@@ -1,0 +1,232 @@
+.contact-info {
+  padding: var(--spacing-xxl) 0;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--spacing-lg);
+}
+
+.contact-card {
+  background-color: var(--white-color);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-xl);
+  text-align: center;
+  box-shadow: var(--box-shadow-sm);
+  transition: var(--transition-normal);
+}
+
+.contact-card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--box-shadow);
+}
+
+.contact-icon {
+  width: 70px;
+  height: 70px;
+  background-color: rgba(0, 80, 162, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto var(--spacing-md);
+}
+
+.contact-icon i {
+  font-size: 1.8rem;
+  color: var(--primary-color);
+}
+
+.contact-card h3 {
+  margin-bottom: var(--spacing-sm);
+}
+
+.contact-card p {
+  margin-bottom: var(--spacing-xs);
+}
+
+/* ===== CONTACT FORM SECTION ===== */
+.contact-form-section {
+  padding: var(--spacing-xxl) 0;
+  background-color: var(--light-color);
+}
+
+.contact-form-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.contact-form {
+  background-color: var(--white-color);
+  padding: var(--spacing-xl);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--box-shadow);
+}
+
+/* ===== MAP SECTION ===== */
+.map-section {
+  padding: var(--spacing-xxl) 0;
+}
+
+.map-container {
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  box-shadow: var(--box-shadow);
+}
+
+/* ===== SOCIAL CONNECT SECTION ===== */
+.social-connect {
+  padding: var(--spacing-xxl) 0;
+  background-color: var(--light-color);
+}
+
+.social-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--spacing-lg);
+}
+
+.social-box {
+  background-color: var(--white-color);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-xl);
+  text-align: center;
+  box-shadow: var(--box-shadow-sm);
+  transition: var(--transition-normal);
+  color: var(--dark-color);
+}
+
+.social-box:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--box-shadow);
+}
+
+.social-box.facebook:hover {
+  background-color: #3b5998;
+  color: var(--white-color);
+}
+
+.social-box.instagram:hover {
+  background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+  color: var(--white-color);
+}
+
+.social-box.twitter:hover {
+  background-color: #1da1f2;
+  color: var(--white-color);
+}
+
+.social-box.linkedin:hover {
+  background-color: #0077b5;
+  color: var(--white-color);
+}
+
+.social-box .social-icon {
+  width: 70px;
+  height: 70px;
+  background-color: rgba(0, 80, 162, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto var(--spacing-md);
+}
+
+.social-box:hover .social-icon {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.social-box .social-icon i {
+  font-size: 1.8rem;
+  color: var(--primary-color);
+}
+
+.social-box:hover .social-icon i {
+  color: var(--white-color);
+}
+
+.social-box h3 {
+  margin-bottom: var(--spacing-sm);
+}
+
+/* ===== FAQ SECTION ===== */
+.faq-section {
+  padding: var(--spacing-xxl) 0;
+}
+
+.faq-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  background-color: var(--white-color);
+  border-radius: var(--border-radius-md);
+  margin-bottom: var(--spacing-md);
+  box-shadow: var(--box-shadow-sm);
+  overflow: hidden;
+}
+
+.faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-md);
+  cursor: pointer;
+}
+
+.faq-question h3 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.faq-toggle {
+  transition: var(--transition-normal);
+}
+
+.faq-item.active .faq-toggle {
+  transform: rotate(45deg);
+}
+
+.faq-answer {
+  padding: 0 var(--spacing-md);
+  max-height: 0;
+  overflow: hidden;
+  transition: var(--transition-normal);
+}
+
+.faq-item.active .faq-answer {
+  padding: 0 var(--spacing-md) var(--spacing-md);
+  max-height: 500px;
+}
+
+.faq-answer p {
+  margin: 0;
+}
+
+.faq-answer a {
+  color: var(--primary-color);
+  font-weight: 500;
+}
+
+/* ===== RESPONSIVE STYLES FOR CONTACT PAGE ===== */
+@media (max-width: 992px) {
+  .contact-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .social-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 576px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .social-grid {
+    grid-template-columns: 1fr;
+  }
+}

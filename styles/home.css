@@ -1,0 +1,526 @@
+.hero {
+  background: linear-gradient(135deg, rgba(179, 39, 95, 0.9), rgba(214, 51, 132, 0.9)),
+    url("/placeholder.svg?height=600&width=1200&text=Children+Learning") center / cover;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  color: white;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, rgba(179, 39, 95, 0.1) 25%, transparent 25%),
+    linear-gradient(-45deg, rgba(247, 168, 27, 0.1) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, rgba(179, 39, 95, 0.1) 75%),
+    linear-gradient(-45deg, transparent 75%, rgba(247, 168, 27, 0.1) 75%);
+  background-size: 60px 60px;
+  background-position: 0 0, 0 30px, 30px -30px, -30px 0px;
+  animation: movePattern 20s linear infinite;
+}
+
+@keyframes movePattern {
+  0% {
+    transform: translateX(0) translateY(0);
+  }
+  100% {
+    transform: translateX(60px) translateY(60px);
+  }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  margin: 0 auto;
+  animation: fadeInUp 1s ease;
+}
+
+.hero-content h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.hero-content p {
+  font-size: 1.5rem;
+  margin-bottom: 2.5rem;
+  opacity: 0.95;
+  font-weight: 300;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.hero-buttons .btn {
+  padding: 15px 30px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  min-width: 160px;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== ABOUT PREVIEW SECTION ===== */
+.about-preview {
+  padding: 5rem 0;
+  background: #f8f9fa;
+}
+
+.about-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.about-text p {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 1.5rem;
+}
+
+.about-text .btn {
+  margin-top: 1rem;
+}
+
+.about-image {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.about-image img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.about-image:hover img {
+  transform: scale(1.05);
+}
+
+/* ===== UPCOMING EVENTS SECTION ===== */
+.upcoming-events {
+  padding: 5rem 0;
+  background: white;
+}
+
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.event-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+  padding: 2rem;
+  display: flex;
+  gap: 1.5rem;
+  transition: all 0.3s ease;
+  border: 1px solid #f0f0f0;
+}
+
+.event-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  border-color: #b3275f;
+}
+
+.event-date {
+  text-align: center;
+  background: linear-gradient(135deg, #b3275f, #d63384);
+  color: white;
+  border-radius: 8px;
+  padding: 1rem;
+  min-width: 80px;
+  height: fit-content;
+}
+
+.event-date .day {
+  display: block;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.event-date .month {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  margin-top: 0.25rem;
+}
+
+.event-details h3 {
+  color: #333;
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+}
+
+.event-location,
+.event-time {
+  color: #666;
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.event-location i,
+.event-time i {
+  color: #b3275f;
+  width: 16px;
+}
+
+.event-details .btn {
+  margin-top: 1rem;
+  padding: 8px 16px;
+  font-size: 0.9rem;
+}
+
+.view-all-container {
+  text-align: center;
+}
+
+/* ===== IMPACT STORIES SECTION ===== */
+.impact-stories {
+  padding: 5rem 0;
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+}
+
+.impact-slider {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.impact-slide {
+  display: none;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+  background: white;
+  border-radius: 12px;
+  padding: 3rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.impact-slide.active {
+  display: grid;
+  animation: fadeIn 0.5s ease;
+}
+
+.impact-image {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.impact-image img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+.impact-content h3 {
+  color: #333;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.impact-content p {
+  color: #555;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+.slider-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.prev-btn,
+.next-btn {
+  background: #b3275f;
+  color: white;
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  font-size: 1.2rem;
+}
+
+.prev-btn:hover,
+.next-btn:hover {
+  background: #9d1e4f;
+  transform: scale(1.1);
+}
+
+.slider-dots {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #ddd;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dot.active {
+  background: #b3275f;
+  transform: scale(1.2);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* ===== SOCIAL FEED SECTION ===== */
+.social-feed {
+  padding: 5rem 0;
+  background: white;
+}
+
+.social-feed .social-icons {
+  margin-bottom: 3rem;
+}
+
+.instagram-feed {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.insta-item {
+  aspect-ratio: 1;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.insta-item:hover {
+  transform: scale(1.05);
+}
+
+.insta-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.insta-item::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, rgba(179, 39, 95, 0.8), rgba(247, 168, 27, 0.8));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.insta-item:hover::after {
+  opacity: 1;
+}
+
+/* ===== RESPONSIVE STYLES FOR HOME PAGE ===== */
+@media (max-width: 992px) {
+  .events-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .instagram-feed {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    min-height: 80vh;
+  }
+
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero-content p {
+    font-size: 1.2rem;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-buttons .btn {
+    padding: 12px 24px;
+    font-size: 1rem;
+    min-width: 140px;
+  }
+
+  .about-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .about-image {
+    order: -1;
+  }
+
+  .events-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .event-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .event-date {
+    align-self: center;
+  }
+
+  .impact-slide {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 2rem;
+  }
+
+  .impact-image {
+    order: -1;
+  }
+
+  .instagram-feed {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    min-height: 80vh;
+  }
+
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+  }
+
+  .hero-buttons .btn {
+    padding: 12px 24px;
+    font-size: 1rem;
+    min-width: 140px;
+  }
+
+  .event-card {
+    padding: 1.5rem;
+  }
+
+  .impact-slide {
+    padding: 1.5rem;
+  }
+
+  .slider-controls {
+    gap: 1rem;
+  }
+
+  .prev-btn,
+  .next-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+
+  .instagram-feed {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .hero {
+    background: #000;
+    color: #fff;
+  }
+
+  .event-card {
+    border: 2px solid #333;
+  }
+
+  .impact-slide {
+    border: 2px solid #333;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .hero::before {
+    animation: none;
+  }
+
+  .hero-content {
+    animation: none;
+  }
+
+  .impact-slide.active {
+    animation: none;
+  }
+
+  * {
+    transition: none !important;
+  }
+}

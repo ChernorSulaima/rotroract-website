@@ -1,0 +1,363 @@
+.page-banner {
+  background: linear-gradient(135deg, rgba(179, 39, 95, 0.9), rgba(214, 51, 132, 0.9)),
+    url("/placeholder.svg?height=400&width=1200&text=About+Us+Banner") center / cover;
+}
+
+/* ===== ABOUT INTRO SECTION ===== */
+.about-intro {
+  padding: 5rem 0;
+  background: #f8f9fa;
+}
+
+.about-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.about-image {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.about-image img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.about-image:hover img {
+  transform: scale(1.05);
+}
+
+.about-text h2 {
+  color: #333;
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+}
+
+.about-text .divider {
+  margin-left: 0;
+  margin-bottom: var(--spacing-md);
+}
+
+.about-text p {
+  font-size: 1.1rem;
+  color: #555;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+}
+
+/* ===== MISSION VISION SECTION ===== */
+.mission-vision {
+  padding: 5rem 0;
+  background: white;
+}
+
+.mission-vision-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 3rem;
+  margin-top: 2rem;
+}
+
+.mission-box,
+.vision-box,
+.values-box {
+  background: white;
+  padding: 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  transition: all 0.3s ease;
+  border: 1px solid #f0f0f0;
+  position: relative;
+  overflow: hidden;
+}
+
+.mission-box::before,
+.vision-box::before,
+.values-box::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(135deg, #b3275f, #f7a81b);
+}
+
+.mission-box:hover,
+.vision-box:hover,
+.values-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.mission-box .icon,
+.vision-box .icon,
+.values-box .icon {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, #b3275f, #d63384);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  color: white;
+  font-size: 2rem;
+}
+
+.mission-box h3,
+.vision-box h3,
+.values-box h3 {
+  color: #333;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.mission-box p,
+.vision-box p,
+.values-box p {
+  color: #666;
+  line-height: 1.7;
+}
+
+/* ===== OBJECTIVES SECTION ===== */
+.objectives {
+  padding: 5rem 0;
+  background: #f8f9fa;
+}
+
+.objectives-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.objective-item {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  transition: all 0.3s ease;
+  border: 1px solid #f0f0f0;
+}
+
+.objective-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+  border-color: #b3275f;
+}
+
+.objective-icon {
+  width: 70px;
+  height: 70px;
+  background: linear-gradient(135deg, #f7a81b, #ffc107);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  color: white;
+  font-size: 1.8rem;
+}
+
+.objective-item h3 {
+  color: #333;
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+}
+
+.objective-item p {
+  color: #666;
+  line-height: 1.7;
+}
+
+/* ===== HISTORY SECTION ===== */
+.history {
+  padding: 5rem 0;
+  background: white;
+}
+
+.timeline {
+  position: relative;
+  max-width: 800px;
+  margin: 2rem auto 0;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: linear-gradient(135deg, #b3275f, #f7a81b);
+  transform: translateX(-50%);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 3rem;
+  display: flex;
+  align-items: center;
+}
+
+.timeline-item:nth-child(odd) {
+  flex-direction: row;
+}
+
+.timeline-item:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  background: #b3275f;
+  border-radius: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  border: 4px solid white;
+  box-shadow: 0 0 0 4px #b3275f;
+}
+
+.timeline-date {
+  background: linear-gradient(135deg, #b3275f, #d63384);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin: 0 2rem;
+  min-width: 80px;
+  text-align: center;
+}
+
+.timeline-content {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+  flex: 1;
+  margin: 0 2rem;
+  border: 1px solid #f0f0f0;
+  transition: all 0.3s ease;
+}
+
+.timeline-content:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.timeline-content h3 {
+  color: #333;
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+}
+
+.timeline-content p {
+  color: #666;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* ===== RESPONSIVE STYLES FOR ABOUT PAGE ===== */
+@media (max-width: 992px) {
+  .mission-vision-content {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-lg);
+  }
+
+  .values-box {
+    grid-column: span 2;
+  }
+
+  .objectives-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .about-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .about-image {
+    order: -1;
+  }
+
+  .timeline::before {
+    left: 30px;
+  }
+
+  .timeline-item {
+    flex-direction: row !important;
+    padding-left: 60px;
+  }
+
+  .timeline-dot {
+    left: 30px;
+  }
+
+  .timeline-date {
+    margin: 0 1rem 0 0;
+    min-width: auto;
+  }
+
+  .timeline-content {
+    margin: 0;
+  }
+}
+
+@media (max-width: 576px) {
+  .mission-vision-content {
+    grid-template-columns: 1fr;
+  }
+
+  .values-box {
+    grid-column: span 1;
+  }
+
+  .objectives-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .mission-box,
+  .vision-box,
+  .values-box {
+    padding: 2rem 1.5rem;
+  }
+
+  .objective-item {
+    padding: 1.5rem;
+  }
+
+  .timeline-content {
+    padding: 1.5rem;
+  }
+
+  .timeline-item {
+    padding-left: 50px;
+  }
+
+  .timeline-dot {
+    left: 25px;
+    width: 16px;
+    height: 16px;
+  }
+}
