@@ -29,8 +29,15 @@ export async function POST(req: Request) {
         const event = JSON.parse(rawBody)
 
         // Handle completed session
-        if (event.type === "checkout_session.completed") {
-            const metadata = event.data?.metadata
+        if (
+            event.type === "checkout_session.completed" ||
+            event.type === "payment_code.processed" ||
+            event.type === "payment.processing_completed"
+        ) {
+            // Depending on the event type, Monime might structure metadata slightly differently.
+            // Usually it's in event.data.metadata or event.data.processedPaymentData.metadata
+            const metadata = event.data?.metadata || event.data?.processedPaymentData?.metadata
+
             if (!metadata || !metadata.transactionId) {
                 console.error("Missing metadata or transactionId in webhook", event)
                 return new NextResponse("Missing metadata", { status: 400 })
