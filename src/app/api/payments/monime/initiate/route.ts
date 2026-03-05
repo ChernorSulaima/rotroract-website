@@ -37,18 +37,29 @@ export async function POST(req: Request) {
         })
 
         // 2. Call Monime to create a payment code
-        const monimePayload = {
-            amount: Number(amount) * 100, // CRITICAL: Minor units as per guide!
-            provider: body.provider === "Afrimoney" ? "AFRICELL" : "ORANGE",
-            phoneNumber: body.phoneNumber,
-            customerName: donorName || "Guest Donor",
-            duration: "1h",
+        const monimePayload: any = {
             mode: "one_time",
+            name: type === "donation" ? "Club Donation" : "Membership Dues",
+            amount: {
+                currency: "SLE",
+                value: Number(amount) * 100, // CRITICAL: Minor units as per guide!
+            },
+            customer: {
+                name: donorName || "Guest Donor",
+            },
+            reference,
             metadata: {
                 transactionId: sanityTransaction._id,
                 reference: reference,
                 type,
             },
+        }
+
+        if (body.phoneNumber) {
+            monimePayload.authorizedPhoneNumber = body.phoneNumber.replace(/[\s\-()]/g, "");
+        } else if (body.provider) {
+            const providerId = body.provider === "Afrimoney" ? "m18" : "m17";
+            monimePayload.authorizedProviders = [providerId];
         }
 
         const idempotencyKey = crypto.randomUUID()
