@@ -2,7 +2,7 @@ import { getHeroSlides, getImpactStats, getFocusAreas } from "@/sanity/queries"
 import { urlFor } from "@/sanity/client"
 import HomePageClient from "@/components/HomePageClient"
 
-export const revalidate = 60 // Revalidate every minute
+export const revalidate = 0 // Disable cache temporarily to see immediate updates
 
 export default async function HomePage() {
   const slidesData = await getHeroSlides()
