@@ -333,38 +333,46 @@ export default function HomePageClient({ slides, stats, focusAreas }: HomePageCl
                         </div>
 
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-                            {displayFocusAreas.map((area, index) => (
-                                <div
-                                    key={area._id}
-                                    className="card card-hover group"
-                                >
-                                    <div className="relative h-48 md:h-56 overflow-hidden">
-                                        <Image
-                                            src={area.imageUrl || "/placeholder.png"}
-                                            alt={area.title || "Rotaract Focus Area"}
-                                            fill
-                                            className="object-cover transition-transform duration-500 group-hover:scale-110"
-                                            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                                        />
-                                        <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                                        <div
-                                            className={`absolute top-4 left-4 w-10 h-10 md:w-12 md:h-12 ${area.colorClass || 'bg-rcfs-blue'} rounded-xl flex items-center justify-center shadow-lg`}
-                                        >
-                                            <span className="text-white font-bold text-base md:text-lg">
-                                                {index + 1}
-                                            </span>
+                            {displayFocusAreas.map((area, index) => {
+                                // Determine fallback image based on index if none is uploaded in Sanity
+                                let fallbackSrc = ""
+                                if (index % 3 === 0) fallbackSrc = "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/e7d1165e-2ed2-414f-81dc-4ec276bd5558.JPG-vGV2zamb4h7gpQriqkjUESo4yYK3ml.jpeg"
+                                else if (index % 3 === 1) fallbackSrc = "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/84fbc412-e03a-4332-aa39-eefff0f82432.JPG-c7TMT72VEd9OPqzSmnc6hB5fSwZYmR.jpeg"
+                                else fallbackSrc = "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/5a25d605-2641-4917-b96f-a16c2138e5f3.JPG-SPYwb4CXFyefj4AhXTXUQUUE1XxH99.jpeg"
+
+                                return (
+                                    <div
+                                        key={area._id}
+                                        className="card card-hover group"
+                                    >
+                                        <div className="relative h-48 md:h-56 overflow-hidden">
+                                            <Image
+                                                src={area.imageUrl || fallbackSrc}
+                                                alt={area.title || "Rotaract Focus Area"}
+                                                fill
+                                                className="object-cover transition-transform duration-500 group-hover:scale-110"
+                                                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                                            />
+                                            <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                                            <div
+                                                className={`absolute top-4 left-4 w-10 h-10 md:w-12 md:h-12 ${area.colorClass || 'bg-rcfs-blue'} rounded-xl flex items-center justify-center shadow-lg`}
+                                            >
+                                                <span className="text-white font-bold text-base md:text-lg">
+                                                    {index + 1}
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div className="p-5 md:p-6">
+                                            <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-2 md:mb-3">
+                                                {area.title}
+                                            </h3>
+                                            <p className="text-gray-600 leading-relaxed text-sm md:text-base">
+                                                {area.description}
+                                            </p>
                                         </div>
                                     </div>
-                                    <div className="p-5 md:p-6">
-                                        <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-2 md:mb-3">
-                                            {area.title}
-                                        </h3>
-                                        <p className="text-gray-600 leading-relaxed text-sm md:text-base">
-                                            {area.description}
-                                        </p>
-                                    </div>
-                                </div>
-                            ))}
+                                );
+                            })}
                         </div>
                     </div>
                 </section>
