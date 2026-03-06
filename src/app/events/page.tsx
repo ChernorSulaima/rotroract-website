@@ -23,7 +23,7 @@ export default function EventsPage() {
       location: "Wilberforce Community Center",
       description:
         "Join us for a comprehensive health screening and awareness program for the local community. We'll provide free health checks, distribute health education materials, and connect residents with healthcare resources.",
-      image: "/hero-3.png",
+      image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/69c58881-d67a-406e-90cb-83ee422205fc.JPG-668bYka71jdvl0ZqsxAlqtbbVX3j27.jpeg",
       category: "Community Service",
       attendees: 45,
       isRegistrationOpen: true,
@@ -36,7 +36,7 @@ export default function EventsPage() {
       location: "Manley's Hall, Wilberforce",
       description:
         "Enhance your leadership and professional skills in this interactive workshop. Topics include effective communication, project management, and career development strategies for young professionals.",
-      image: "/hero-2.png",
+      image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/84fbc412-e03a-4332-aa39-eefff0f82432.JPG-c7TMT72VEd9OPqzSmnc6hB5fSwZYmR.jpeg",
       category: "Professional Development",
       attendees: 30,
       isRegistrationOpen: true,
@@ -48,8 +48,8 @@ export default function EventsPage() {
       time: "8:00 AM - 12:00 PM",
       location: "Aberdeen Beach",
       description:
-        "Help us protect our environment by participating in our monthly beach cleanup. We'll provide all necessary equipment and refreshments.",
-      image: "/hero-1.png",
+        "Help us protect our environment by participating in our monthly beach cleanup. We'll provide all necessary equipment and refreshments. This is a great opportunity to make a direct impact on our local environment.",
+      image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/e7d1165e-2ed2-414f-81dc-4ec276bd5558.JPG-vGV2zamb4h7gpQriqkjUESo4yYK3ml.jpeg",
       category: "Environmental",
       attendees: 25,
       isRegistrationOpen: true,
@@ -64,8 +64,8 @@ export default function EventsPage() {
       time: "10:00 AM - 3:00 PM",
       location: "Various Schools in Freetown",
       description:
-        "Successfully distributed school supplies, uniforms, and educational materials to over 200 underprivileged children across 5 schools in Freetown.",
-      image: "/hero-1.png",
+        "Successfully distributed school supplies, uniforms, and educational materials to over 200 underprivileged children across 5 schools in Freetown. This initiative helped ensure that children could start the new academic year with the necessary tools for learning.",
+      image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/child%20image.jpg-k30ptNMgI2eg80pOn4odjKGwftD4fR.jpeg",
       category: "Education",
       attendees: 50,
       impact: "200+ children supported",
@@ -77,8 +77,8 @@ export default function EventsPage() {
       time: "8:00 AM - 5:00 PM",
       location: "Central Freetown",
       description:
-        "Organized a city-wide awareness campaign about polio prevention and vaccination. Our team distributed educational materials and supported vaccination drives.",
-      image: "/hero-3.png",
+        "Organized a city-wide awareness campaign about polio prevention and vaccination. Our team distributed educational materials, conducted community talks, and supported vaccination drives in partnership with local health authorities.",
+      image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/69c58881-d67a-406e-90cb-83ee422205fc.JPG-668bYka71jdvl0ZqsxAlqtbbVX3j27.jpeg",
       category: "Health",
       attendees: 75,
       impact: "1000+ people reached",
@@ -90,8 +90,8 @@ export default function EventsPage() {
       time: "9:00 AM - 6:00 PM",
       location: "Freetown International Conference Center",
       description:
-        "Hosted a comprehensive leadership development summit for young professionals across Sierra Leone.",
-      image: "/hero-2.png",
+        "Hosted a comprehensive leadership development summit for young professionals across Sierra Leone. The event featured keynote speakers, workshops, and networking sessions focused on developing the next generation of leaders.",
+      image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/5a25d605-2641-4917-b96f-a16c2138e5f3.JPG-SPYwb4CXFyefj4AhXTXUQUUE1XxH99.jpeg",
       category: "Leadership",
       attendees: 120,
       impact: "80+ young leaders trained",
@@ -145,8 +145,8 @@ export default function EventsPage() {
               <button
                 onClick={() => setActiveTab("upcoming")}
                 className={`flex-1 sm:flex-none px-5 md:px-6 py-2.5 rounded-lg text-sm font-medium transition-all ${activeTab === "upcoming"
-                    ? "bg-rcfs-blue text-white shadow-sm"
-                    : "text-gray-600 hover:text-gray-900"
+                  ? "bg-rcfs-blue text-white shadow-sm"
+                  : "text-gray-600 hover:text-gray-900"
                   }`}
               >
                 Upcoming
@@ -154,8 +154,8 @@ export default function EventsPage() {
               <button
                 onClick={() => setActiveTab("past")}
                 className={`flex-1 sm:flex-none px-5 md:px-6 py-2.5 rounded-lg text-sm font-medium transition-all ${activeTab === "past"
-                    ? "bg-rcfs-blue text-white shadow-sm"
-                    : "text-gray-600 hover:text-gray-900"
+                  ? "bg-rcfs-blue text-white shadow-sm"
+                  : "text-gray-600 hover:text-gray-900"
                   }`}
               >
                 Past Events
