@@ -36,19 +36,19 @@ const leadership = [
   {
     name: "John Doe",
     position: "President",
-    image: "/hero-2.png",
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/84fbc412-e03a-4332-aa39-eefff0f82432.JPG-c7TMT72VEd9OPqzSmnc6hB5fSwZYmR.jpeg",
     bio: "Leading our club with passion and dedication to community service.",
   },
   {
     name: "Jane Smith",
     position: "Vice President",
-    image: "/hero-1.png",
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/5a25d605-2641-4917-b96f-a16c2138e5f3.JPG-SPYwb4CXFyefj4AhXTXUQUUE1XxH99.jpeg",
     bio: "Supporting our mission through strategic planning and member engagement.",
   },
   {
     name: "Mike Johnson",
     position: "Secretary",
-    image: "/hero-3.png",
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/69c58881-d67a-406e-90cb-83ee422205fc.JPG-668bYka71jdvl0ZqsxAlqtbbVX3j27.jpeg",
     bio: "Ensuring effective communication and documentation of our activities.",
   },
 ]
@@ -92,7 +92,7 @@ export default function AboutPage() {
             <div className="relative order-first lg:order-last">
               <div className="relative h-64 sm:h-80 md:h-96 rounded-xl overflow-hidden shadow-2xl">
                 <Image
-                  src="/hero-1.png"
+                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/5a25d605-2641-4917-b96f-a16c2138e5f3.JPG-SPYwb4CXFyefj4AhXTXUQUUE1XxH99.jpeg"
                   alt="Rotaract Club Members"
                   fill
                   className="object-cover"

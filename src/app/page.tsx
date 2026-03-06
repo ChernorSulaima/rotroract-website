@@ -44,21 +44,21 @@ const focusAreas = [
     title: "Community Service",
     description:
       "Addressing local needs through sustainable projects that create lasting positive change.",
-    image: "/hero-3.png",
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/e7d1165e-2ed2-414f-81dc-4ec276bd5558.JPG-vGV2zamb4h7gpQriqkjUESo4yYK3ml.jpeg",
     color: "bg-rcfs-blue",
   },
   {
     title: "Professional Development",
     description:
       "Building leadership skills and fostering career growth among young professionals.",
-    image: "/hero-2.png",
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/84fbc412-e03a-4332-aa39-eefff0f82432.JPG-c7TMT72VEd9OPqzSmnc6hB5fSwZYmR.jpeg",
     color: "bg-rcfs-gold",
   },
   {
     title: "International Understanding",
     description:
       "Promoting peace and cultural exchange through global connections and partnerships.",
-    image: "/hero-1.png",
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/5a25d605-2641-4917-b96f-a16c2138e5f3.JPG-SPYwb4CXFyefj4AhXTXUQUUE1XxH99.jpeg",
     color: "bg-rcfs-magenta",
   },
 ]
@@ -193,8 +193,8 @@ export default function HomePage() {
           <div
             key={index}
             className={`absolute inset-0 transition-all duration-1000 ease-in-out ${index === currentSlide
-                ? "opacity-100 scale-100"
-                : "opacity-0 scale-105"
+              ? "opacity-100 scale-100"
+              : "opacity-0 scale-105"
               }`}
           >
             <Image
@@ -211,8 +211,8 @@ export default function HomePage() {
               <div className="text-center text-white px-5 max-w-5xl mx-auto">
                 <h1
                   className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 md:mb-6 leading-tight transition-all duration-700 ${index === currentSlide
-                      ? "opacity-100 translate-y-0"
-                      : "opacity-0 translate-y-6"
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-6"
                     }`}
                   style={{ transitionDelay: "200ms" }}
                 >
@@ -220,8 +220,8 @@ export default function HomePage() {
                 </h1>
                 <p
                   className={`text-base sm:text-lg md:text-xl lg:text-2xl mb-6 md:mb-8 max-w-3xl mx-auto leading-relaxed text-white/90 transition-all duration-700 ${index === currentSlide
-                      ? "opacity-100 translate-y-0"
-                      : "opacity-0 translate-y-6"
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-6"
                     }`}
                   style={{ transitionDelay: "400ms" }}
                 >
@@ -229,8 +229,8 @@ export default function HomePage() {
                 </p>
                 <div
                   className={`flex flex-col sm:flex-row gap-3 md:gap-4 justify-center transition-all duration-700 ${index === currentSlide
-                      ? "opacity-100 translate-y-0"
-                      : "opacity-0 translate-y-6"
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-6"
                     }`}
                   style={{ transitionDelay: "600ms" }}
                 >
@@ -275,8 +275,8 @@ export default function HomePage() {
               key={index}
               onClick={() => goToSlide(index)}
               className={`transition-all duration-300 rounded-full ${index === currentSlide
-                  ? "w-8 h-2.5 bg-white"
-                  : "w-2.5 h-2.5 bg-white/50 hover:bg-white/70"
+                ? "w-8 h-2.5 bg-white"
+                : "w-2.5 h-2.5 bg-white/50 hover:bg-white/70"
                 }`}
               aria-label={`Go to slide ${index + 1}`}
             />
