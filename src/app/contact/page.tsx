@@ -1,8 +1,9 @@
 "use client"
 
 import type React from "react"
-import { useState, useEffect } from "react"
+import { useState, useEffect, FormEvent } from "react"
 import { Facebook, Instagram, Plus, Minus } from "lucide-react"
+import { submitContactMessage } from "@/app/actions"
 import { useNotification } from "@/components/NotificationProvider"
 
 export default function ContactPage() {
@@ -32,14 +33,22 @@ export default function ContactPage() {
     e.preventDefault()
     setIsLoading(true)
 
-    setTimeout(() => {
+    const result = await submitContactMessage(formData)
+
+    if (result.success) {
       showNotification(
         "success",
         "Message sent successfully! We will get back to you soon."
       )
       setFormData({ name: "", email: "", phone: "", subject: "", message: "" })
-      setIsLoading(false)
-    }, 2000)
+    } else {
+      showNotification(
+        "error",
+        "Failed to send message. Please try again."
+      )
+    }
+
+    setIsLoading(false)
   }
 
   const socialLinks = [
@@ -294,8 +303,8 @@ export default function ContactPage() {
 
                 <div
                   className={`transition-all duration-300 ease-in-out ${openFAQ === index
-                      ? "max-h-96 opacity-100"
-                      : "max-h-0 opacity-0"
+                    ? "max-h-96 opacity-100"
+                    : "max-h-0 opacity-0"
                     } overflow-hidden`}
                 >
                   <div className="px-4 pb-4 md:px-6 md:pb-6">

@@ -33,7 +33,7 @@ const Notification = ({ type, message, onClose }: NotificationProps) => {
   const Icon = icons[type]
 
   return (
-    <div className={`notification ${colors[type]} animate-fade-in-up`}>
+    <div className={`fixed bottom-4 right-4 z-50 min-w-[320px] rounded-lg p-4 text-white shadow-xl ${colors[type]} animate-in fade-in slide-in-from-bottom-5 duration-300`}>
       <div className="flex items-center space-x-3">
         <Icon size={20} />
         <span className="flex-1">{message}</span>

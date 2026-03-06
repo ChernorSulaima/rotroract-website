@@ -57,6 +57,19 @@ export default defineConfig({
                         S.documentTypeListItem("galleryImage").title("Gallery"),
                         S.documentTypeListItem("teamMember").title("Team Members"),
                         S.documentTypeListItem("faq").title("FAQs"),
+                        S.divider(),
+                        // Form Submissions
+                        S.listItem()
+                            .title("Form Submissions")
+                            .child(
+                                S.list()
+                                    .title("Form Submissions")
+                                    .items([
+                                        S.documentTypeListItem("contactMessage").title("Contact Messages"),
+                                        S.documentTypeListItem("membershipApplication").title("Membership Apps"),
+                                        S.documentTypeListItem("eventRegistration").title("Event Registrations"),
+                                    ])
+                            ),
                     ]),
         }),
         visionTool(),

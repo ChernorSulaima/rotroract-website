@@ -5,9 +5,13 @@ import Link from "next/link"
 import Image from "next/image"
 import { Calendar, MapPin, Clock, Users, ArrowRight } from "lucide-react"
 import { useNotification } from "@/components/NotificationProvider"
+import { submitEventRegistration } from "@/app/actions"
 
 export default function EventsPage() {
   const [activeTab, setActiveTab] = useState("upcoming")
+  const [selectedEvent, setSelectedEvent] = useState<string | null>(null)
+  const [formData, setFormData] = useState({ name: "", email: "", phone: "" })
+  const [isSubmitting, setIsSubmitting] = useState(false)
   const { showNotification } = useNotification()
 
   useEffect(() => {
@@ -98,11 +102,42 @@ export default function EventsPage() {
     },
   ]
 
-  const handleRegistration = (eventTitle: string) => {
-    showNotification(
-      "success",
-      `Registration interest noted for "${eventTitle}". We'll contact you with details!`
-    )
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target
+    setFormData((prev) => ({ ...prev, [name]: value }))
+  }
+
+  const handleRegistrationClick = (eventTitle: string) => {
+    setSelectedEvent(eventTitle)
+  }
+
+  const handleRegistrationSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    if (!selectedEvent) return
+    setIsSubmitting(true)
+
+    const result = await submitEventRegistration({
+      eventName: selectedEvent,
+      name: formData.name,
+      email: formData.email,
+      phone: formData.phone
+    })
+
+    if (result.success) {
+      showNotification(
+        "success",
+        `Registration interest noted for "${selectedEvent}". We'll contact you with details!`
+      )
+      setSelectedEvent(null)
+      setFormData({ name: "", email: "", phone: "" })
+    } else {
+      showNotification(
+        "error",
+        "Failed to register for the event. Please try again."
+      )
+    }
+
+    setIsSubmitting(false)
   }
 
   const formatDate = (dateString: string) => {
@@ -228,7 +263,7 @@ export default function EventsPage() {
                           <span>{event.attendees} registered</span>
                         </div>
                         <button
-                          onClick={() => handleRegistration(event.title)}
+                          onClick={() => handleRegistrationClick(event.title)}
                           className="btn btn-primary flex items-center text-sm md:text-base w-full sm:w-auto justify-center"
                         >
                           Register Interest
@@ -344,6 +379,85 @@ export default function EventsPage() {
           </div>
         </div>
       </section>
+
+      {/* Registration Modal */}
+      {selectedEvent && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-in fade-in duration-200">
+          <div className="bg-white rounded-2xl shadow-xl w-full max-w-md overflow-hidden animate-in zoom-in-95 duration-300">
+            <div className="p-6 md:p-8">
+              <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-2">
+                Register Interest
+              </h3>
+              <p className="text-sm text-gray-600 mb-6">
+                Fill out the form below to register your interest for <span className="font-semibold text-gray-900">{selectedEvent}</span>.
+              </p>
+
+              <form onSubmit={handleRegistrationSubmit} className="space-y-4">
+                <div>
+                  <label className="block text-sm font-semibold text-gray-700 mb-1.5">
+                    Full Name *
+                  </label>
+                  <input
+                    type="text"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleInputChange}
+                    required
+                    className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-rcfs-blue/20 focus:border-rcfs-blue transition-all outline-none"
+                    placeholder="Enter your name"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-semibold text-gray-700 mb-1.5">
+                    Email Address *
+                  </label>
+                  <input
+                    type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    required
+                    className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-rcfs-blue/20 focus:border-rcfs-blue transition-all outline-none"
+                    placeholder="you@example.com"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-semibold text-gray-700 mb-1.5">
+                    Phone Number
+                  </label>
+                  <input
+                    type="tel"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleInputChange}
+                    className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-rcfs-blue/20 focus:border-rcfs-blue transition-all outline-none"
+                    placeholder="+232 XX XXX XXX"
+                  />
+                </div>
+
+                <div className="pt-4 flex gap-3">
+                  <button
+                    type="button"
+                    onClick={() => setSelectedEvent(null)}
+                    className="flex-1 btn btn-outline border-gray-300 text-gray-700 hover:bg-gray-50 px-4 py-3"
+                  >
+                    Cancel
+                  </button>
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="flex-1 btn btn-primary px-4 py-3 disabled:opacity-50"
+                  >
+                    {isSubmitting ? "Submitting..." : "Confirm"}
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   )
 }

@@ -1,9 +1,10 @@
 "use client"
 
 import type React from "react"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Link from "next/link"
-import { Users, Heart, Globe, Award, CheckCircle, ArrowRight } from "lucide-react"
+import { Users, Heart, Globe, Award, Target, BookOpen, CheckCircle, ArrowRight } from "lucide-react"
+import { submitMembershipApplication } from "@/app/actions"
 import { useNotification } from "@/components/NotificationProvider"
 
 export default function MembershipPage() {
@@ -28,19 +29,27 @@ export default function MembershipPage() {
     e.preventDefault()
     setIsSubmitting(true)
 
-    await new Promise((resolve) => setTimeout(resolve, 2000))
+    const result = await submitMembershipApplication(formData)
 
-    showNotification(
-      "success",
-      "Application submitted successfully! We'll be in touch soon."
-    )
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      profession: "",
-      motivation: "",
-    })
+    if (result.success) {
+      showNotification(
+        "success",
+        "Application submitted successfully! We'll be in touch soon."
+      )
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        profession: "",
+        motivation: "",
+      })
+    } else {
+      showNotification(
+        "error",
+        "Failed to submit application. Please try again."
+      )
+    }
+
     setIsSubmitting(false)
   }
 

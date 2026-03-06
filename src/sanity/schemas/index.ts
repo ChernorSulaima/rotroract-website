@@ -7,6 +7,9 @@ import teamMember from "./teamMember"
 import faq from "./faq"
 import siteSettings from "./siteSettings"
 import transaction from "./transaction"
+import contactMessage from "./contactMessage"
+import membershipApplication from "./membershipApplication"
+import eventRegistration from "./eventRegistration"
 
 export const schemaTypes = [
     heroSlide,
@@ -18,4 +21,7 @@ export const schemaTypes = [
     faq,
     siteSettings,
     transaction,
+    contactMessage,
+    membershipApplication,
+    eventRegistration,
 ]

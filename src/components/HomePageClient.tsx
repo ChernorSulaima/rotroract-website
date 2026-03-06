@@ -196,14 +196,10 @@ export default function HomePageClient({ slides, stats, focusAreas }: HomePageCl
                             : "opacity-0 scale-105"
                             }`}
                     >
-                        <Image
+                        <img
                             src={slide.imageUrl || "/hero-1.png"}
                             alt={slide.title || "Rotaract Hero Image"}
-                            fill
-                            className="object-cover"
-                            priority={index === 0}
-                            sizes="100vw"
-                            quality={85}
+                            className="absolute inset-0 w-full h-full object-cover"
                         />
                         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70" />
                         <div className="relative z-10 flex items-center justify-center h-full">
@@ -346,12 +342,10 @@ export default function HomePageClient({ slides, stats, focusAreas }: HomePageCl
                                         className="card card-hover group"
                                     >
                                         <div className="relative h-48 md:h-56 overflow-hidden">
-                                            <Image
+                                            <img
                                                 src={area.imageUrl || fallbackSrc}
                                                 alt={area.title || "Rotaract Focus Area"}
-                                                fill
-                                                className="object-cover transition-transform duration-500 group-hover:scale-110"
-                                                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                                                className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                                             />
                                             <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                                             <div
