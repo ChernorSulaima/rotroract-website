@@ -118,10 +118,10 @@
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
 
-  /* Rotaract Brand Colors */
-  --color-rcfs-blue: var(--rcfs-blue);
-  --color-rcfs-gold: var(--rcfs-gold);
-  --color-rcfs-magenta: var(--rcfs-magenta);
+  /* Rotaract Brand Colors - Must be literal hex for Tailwind alpha parsing */
+  --color-rcfs-blue: #17458f;
+  --color-rcfs-gold: #f7a81b;
+  --color-rcfs-magenta: #d41367;
 }
 
 @layer base {
@@ -570,5 +570,10 @@ select:focus {
 
 /* Gradient for CTA sections */
 .rcfs-gradient {
-  background: linear-gradient(135deg, #17458f 0%, #0f3070 50%, #17458f 100%);
+  background: linear-gradient(135deg, var(--rcfs-blue) 0%, #0f3070 50%, var(--rcfs-blue) 100%);
+}
+
+/* Gradient for Icons */
+.rcfs-icon-gradient {
+  background: linear-gradient(135deg, var(--rcfs-blue) 0%, var(--rcfs-magenta) 100%);
 }

@@ -168,7 +168,7 @@ export default function AboutPage() {
                 key={index}
                 className="card card-hover text-center p-6 md:p-8"
               >
-                <div className="w-14 h-14 md:w-16 md:h-16 bg-gradient-to-br from-rcfs-blue to-rcfs-magenta rounded-2xl flex items-center justify-center mx-auto mb-4 md:mb-6 shadow-lg">
+                <div className="w-14 h-14 md:w-16 md:h-16 rcfs-icon-gradient rounded-2xl flex items-center justify-center mx-auto mb-4 md:mb-6 shadow-lg">
                   <value.icon className="text-white" size={28} />
                 </div>
                 <h3 className="text-lg md:text-xl font-semibold text-gray-900 mb-3 md:mb-4">
