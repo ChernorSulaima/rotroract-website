@@ -20,13 +20,6 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
   },
-  icons: {
-    icon: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Club%20logo.jpg-CPidqMCeSGEZSyDxJVJppvijlcuQEn.jpeg",
-    shortcut:
-      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Club%20logo.jpg-CPidqMCeSGEZSyDxJVJppvijlcuQEn.jpeg",
-    apple:
-      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Club%20logo.jpg-CPidqMCeSGEZSyDxJVJppvijlcuQEn.jpeg",
-  },
 }
 
 export default function RootLayout({
