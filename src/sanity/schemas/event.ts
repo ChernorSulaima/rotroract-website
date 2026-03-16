@@ -82,6 +82,12 @@ const event = {
             initialValue: false,
         },
         {
+            name: "impact",
+            title: "Impact Summary",
+            type: "string",
+            description: 'e.g. "200+ children supported" — shown on past events',
+        },
+        {
             name: "status",
             title: "Status",
             type: "string",

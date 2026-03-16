@@ -39,11 +39,11 @@ export async function submitMembershipApplication(data: { name: string, email: s
     }
 }
 
-export async function submitEventRegistration(data: { name: string, email: string, phone?: string, eventName: string }) {
+export async function submitEventRegistration(data: { name: string, email: string, phone?: string, eventId: string }) {
     try {
         await writeClient.create({
             _type: 'eventRegistration',
-            eventName: data.eventName,
+            event: { _type: "reference", _ref: data.eventId },
             name: data.name,
             email: data.email,
             phone: data.phone

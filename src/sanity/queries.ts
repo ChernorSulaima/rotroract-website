@@ -52,7 +52,7 @@ export async function getEvents(status?: string) {
         : `*[_type == "event"]`
 
     return client.fetch(
-        `${filter} | order(date desc) {
+        `${filter} | order(date asc) {
       _id,
       title,
       slug,
@@ -65,7 +65,9 @@ export async function getEvents(status?: string) {
       category,
       attendees,
       isFeatured,
-      status
+      status,
+      impact,
+      "registrationCount": count(*[_type == "eventRegistration" && event._ref == ^._id])
     }`,
         status ? { status } : {}
     )
